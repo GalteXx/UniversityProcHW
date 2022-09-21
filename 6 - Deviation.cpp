@@ -11,7 +11,12 @@ int main(){
 	cout << "enter x\n";
 	if(abs(x) < 1)
 		cout << a * log(x);
-	else
-		cout << sqrt(a - x*x);
+	else {
+		cout << sqrt(abs(a - x*x));
+		if(a - x*x < 0)
+			cout << 'i';
+
+	}
+		
     return 0;
 }
