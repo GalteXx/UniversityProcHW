@@ -11,7 +11,6 @@ float enough(float S, float r, float n) {
         return S * r / 12;
     }
 }
-
 int main() {
     float m, S, n;
     cout << "Enter m, s and n\n";
