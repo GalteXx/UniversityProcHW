@@ -1,0 +1,41 @@
+#include <iostream>
+#include <regex>
+#include <string>
+using namespace std;
+
+bool invalidate(string a) {
+	regex pattern(R"(^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$)");
+	return !regex_match(a, pattern);
+}
+
+int to_dec(string a) {
+	if (invalidate(a))
+		return -1;
+
+    a = regex_replace(a, regex("CM"), "DCCCC");
+    a = regex_replace(a, regex("CD"), "CCCC");
+    a = regex_replace(a, regex("XC"), "LXXXX");
+    a = regex_replace(a, regex("XL"), "XXXX");
+    a = regex_replace(a, regex("IX"), "VIIII");
+    a = regex_replace(a, regex("IV"), "IIII");
+    a = regex_replace(a, regex("M"), "DD");
+    a = regex_replace(a, regex("D"), "CCCCC");
+    a = regex_replace(a, regex("C"), "LL");
+    a = regex_replace(a, regex("L"), "XXXXX");
+    a = regex_replace(a, regex("X"), "VV");
+    a = regex_replace(a, regex("V"), "IIIII");
+
+    return a.size();
+}
+
+int main() {
+	string str;
+	cout << "Enter Roman num:\n";
+	cin >> str;
+    if (to_dec(str) == -1) {
+        cout << "Invalid Input";
+        return 0;
+    }
+    cout << to_dec(str);
+	return 0;
+}
