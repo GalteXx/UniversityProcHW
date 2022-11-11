@@ -19,7 +19,7 @@ int main() {
 	cout << "Enter number:\n";
 	cin >> num;
 	for(int i = 0; num[i] != '\0\; i++) {
-	    if(num[i] > alph[i]) {
+	    if(num[i] > alph[ss]) {
 		    cout << "wrong number";
 		    return 0;
 	    }
