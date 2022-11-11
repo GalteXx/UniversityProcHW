@@ -13,6 +13,10 @@ int main(){
         cout << "error";
         return 0;
     }
-    getline(file, str);
-    cout << str;
+    int n, sum = 0;
+    while(ifstream >> n){
+        sum += n;
+    }
+    
+    cout << sum;
 }
