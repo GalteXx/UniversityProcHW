@@ -11,8 +11,12 @@ int main(){
         cout << "Something went wrong";
         return 0;
     }
-    cout << (S * (p/100) * pow(1 + (p/100), n)) / (12 * (pow(1 + (p / 100), n) - 1));
-    
+    if(p != 0)
+        cout << (S * (p/100) * pow(1 + (p/100), n)) / (12 * (pow(1 + (p / 100), n) - 1));
+    else
+        cout << S / p;
+        
+
 
     return 0;
 }
